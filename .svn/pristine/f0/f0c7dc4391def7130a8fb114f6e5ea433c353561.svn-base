@@ -1,0 +1,52 @@
+<div class="ui-g">
+    <div class="ui-g-12" style="height: 60px; background: #FFF; text-align: center; background: #659b39">
+        <img src="https://s3-us-west-2.amazonaws.com/dapesweb/dapes_verde.jpg" style="width: 50px">
+    </div>
+    <div class="ui-g-12" style="background: #efefef">
+        <div class="card" style="width: 40%; text-align: center; margin:0 auto; margin-top: 50px; ">
+            <div>
+                <span class="title" >LOGIN</span>
+            </div>
+            <div>
+                <span class="title" >Acesse com seu e-mail ou CPF cadastrado.</span>
+            </div>
+            <form #f="ngForm" novalidate (ngSubmit)="doLogin(f.value, f.valid)">
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12">
+                        <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel" required  placeholder="E-mail ou CPF">
+                        <small [hidden]="username.valid || !f.submitted">
+                            Informe o e-mail ou o cpf.
+                        </small>
+                    </div>
+                    <div class="ui-g-12">
+                        <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required  placeholder="Senha">
+                        <small [hidden]="password.valid ||  !f.submitted">
+                            Informe a senha.
+                        </small>
+                    </div>
+                    <div class="ui-g-12">
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+                    <div class="row">
+                        <div class="ui-g-12 ui-md-6">
+                            <button type="button" (click)="doLimpar()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
+                                <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
+                                <span class="ui-button-text ui-c">LIMPAR</span>
+                            </button>
+                        </div>
+                        <div class="ui-g-12 ui-md-6 ">
+                            <button type="submit"   class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left pull-right">
+                                <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
+                                <span class="ui-button-text ui-c">ENTRAR</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        Não possui a sua conta na Dapes? <button type="button" class="btn btn-primary-outline pull-right" (click)="navegarCadastro();"><i class="fa fa-plus"></i>Cadastre-se agora!</button>    
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

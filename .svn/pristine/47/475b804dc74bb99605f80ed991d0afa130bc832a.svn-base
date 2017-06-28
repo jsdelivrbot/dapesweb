@@ -1,0 +1,40 @@
+import { LoginComponent } from './views/login/login.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
+import { AuthGuard } from './guards/index';
+import {Routes,RouterModule} from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
+import {DashboardDemo} from './demo/view/dashboarddemo';
+import {SampleDemo} from './demo/view/sampledemo';
+import {FormsDemo} from './demo/view/formsdemo';
+import {DataDemo} from './demo/view/datademo';
+import {PanelsDemo} from './demo/view/panelsdemo';
+import {OverlaysDemo} from './demo/view/overlaysdemo';
+import {MenusDemo} from './demo/view/menusdemo';
+import {MessagesDemo} from './demo/view/messagesdemo';
+import {MiscDemo} from './demo/view/miscdemo';
+import {EmptyDemo} from './demo/view/emptydemo';
+import {ChartsDemo} from './demo/view/chartsdemo';
+import {FileDemo} from './demo/view/filedemo';
+import {UtilsDemo} from './demo/view/utilsdemo';
+import {Documentation} from './demo/view/documentation';
+
+export const routes: Routes = [
+    {path: 'login', component: LoginComponent},
+    {path: 'novo-cadastro', component: NovoCadastroComponent},
+    {path: '', component: DashboardDemo, canActivate: [AuthGuard]},
+    {path: 'sample', component: SampleDemo, canActivate: [AuthGuard]},
+    {path: 'forms', component: FormsDemo, canActivate: [AuthGuard]},
+    {path: 'data', component: DataDemo, canActivate: [AuthGuard]},
+    {path: 'panels', component: PanelsDemo, canActivate: [AuthGuard]},
+    {path: 'overlays', component: OverlaysDemo, canActivate: [AuthGuard]},
+    {path: 'menus', component: MenusDemo, canActivate: [AuthGuard]},
+    {path: 'messages', component: MessagesDemo, canActivate: [AuthGuard]},
+    {path: 'misc', component: MiscDemo, canActivate: [AuthGuard]},
+    {path: 'empty', component: EmptyDemo, canActivate: [AuthGuard]},
+    {path: 'charts', component: ChartsDemo, canActivate: [AuthGuard]},
+    {path: 'file', component: FileDemo, canActivate: [AuthGuard]},
+    {path: 'utils', component: UtilsDemo, canActivate: [AuthGuard]},
+    {path: 'documentation', component: Documentation, canActivate: [AuthGuard]}
+];
+
+export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);

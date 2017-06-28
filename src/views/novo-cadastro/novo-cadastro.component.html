@@ -1,0 +1,47 @@
+<div class="ui-g-12" style="height: 60px; background: #FFF; text-align: center; background: #659b39">
+    <img style="max-width: 50px; max-height: 50px;border-radius: 6px;" src="https://s3-us-west-2.amazonaws.com/dapesweb/dapes_verde.jpg">
+</div>
+<body class="login-body">
+    
+    <div id="login-wrapper" style="margin-top: 20px;">
+        <div id="login-container">
+            <span class="title">Segurança e Facilidade</span>
+            <form [formGroup]="cadastroForm"  (ngSubmit)="onFormSubmit()">
+                <div class="ui-g ui-fluid ">
+                    <div class="ui-g-12">
+                        <input type="text" formControlName="nomeCompleto" autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Nome completo" />
+                        <div [hidden]="nomeCompleto.valid">Invalid</div>
+                    </div>
+                    <div class="ui-g-12">
+                        <input type="text" formControlName="email" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="E-mail" />
+                        <div [hidden]="email.valid">Invalid</div>
+                    </div>
+                    <div formGroupName="passwords">
+                        <div class="ui-g-12">
+                            <input type="password" formControlName="password" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Senha (6 números)" />
+                        </div>
+                        <div class="ui-g-12">
+                            <input type="password" formControlName="repeat" id="repeatInput" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Confirme sua senha" />
+                            <div [hidden]="repeatInput.valid">Invalid</div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <button type="button" class="ui-button ui-widget ui-state-default green-button ui-corner-all ui-button-text-icon-left">
+                            <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
+                            <span class="ui-button-text ui-c">LIMPAR</span>
+                        </button>
+                    </div>
+                    <div class="ui-g-12">
+                        <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" >
+                            <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
+                            <span class="ui-button-text ui-c">CADASTRE-SE</span>
+                        </button>
+                    </div>
+                     <pre>{{value}}</pre>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-footer"></div>
+    </div>
+</body>
