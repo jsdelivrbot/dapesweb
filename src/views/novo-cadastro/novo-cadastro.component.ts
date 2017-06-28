@@ -1,4 +1,6 @@
+import { UserRegisterModel } from './../../models/user.register.model';
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-novo-cadastro',
@@ -6,6 +8,8 @@ import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } 
   styleUrls: ['./novo-cadastro.component.css']
 })
 export class NovoCadastroComponent implements OnInit {
+  public user:UserRegisterModel;
+
   cadastroForm: FormGroup;
   nomeCompleto = new FormControl("", Validators.required);
   email = new FormControl("", Validators.required);
@@ -19,6 +23,11 @@ export class NovoCadastroComponent implements OnInit {
           repeat: ['', Validators.required]
         }, {validator: this.comparePassword})
     });
+  }
+
+  save(model: UserRegisterModel, isValid: boolean) {
+    // call API to save customer
+    console.log(model, isValid);
   }
 
   comparePassword(group: FormGroup) {
@@ -44,6 +53,12 @@ export class NovoCadastroComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = {
+      nome: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
   }
 
 }

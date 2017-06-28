@@ -6,26 +6,33 @@
     <div id="login-wrapper" style="margin-top: 20px;">
         <div id="login-container">
             <span class="title">Segurança e Facilidade</span>
-            <form [formGroup]="cadastroForm"  (ngSubmit)="onFormSubmit()">
+            <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
                 <div class="ui-g ui-fluid ">
-                    <div class="ui-g-12">
-                        <input type="text" formControlName="nomeCompleto" autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Nome completo" />
-                        <div [hidden]="nomeCompleto.valid">Invalid</div>
+                    <div class="ui-g-12 form-group">
+                        <input type="text" placeholder="Nome completo"  class="form-control" name="username" [ngModel]="user.nome" required minlength="1"  #username="ngModel" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                        <small [hidden]="username.valid || (username.pristine && !f.submitted)" class="text-danger">
+                            Digite seu nome completo.
+                        </small>
                     </div>
-                    <div class="ui-g-12">
-                        <input type="text" formControlName="email" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="E-mail" />
-                        <div [hidden]="email.valid">Invalid</div>
+                    <div class="ui-g-12  form-group">
+                        <input type="email" placeholder="E-mail" class="form-control" name="email" [ngModel]="user.email" required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                        <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+                            E-mail inválido.
+                        </small>
                     </div>
-                    <div formGroupName="passwords">
-                        <div class="ui-g-12">
-                            <input type="password" formControlName="password" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Senha (6 números)" />
-                        </div>
-                        <div class="ui-g-12">
-                            <input type="password" formControlName="repeat" id="repeatInput" required autocomplete="off" class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Confirme sua senha" />
-                            <div [hidden]="repeatInput.valid">Invalid</div>
-                        </div>
+                    <div class="ui-g-12 form-group">
+                        <input type="password" placeholder="Senha (6 números)" class="form-control" name="password"   [ngModel]="user.password" required validateEqual="confirmPassword" reverse="true" #password="ngModel" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                        <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+                            Digite sua senha de 6 números.
+                        </small>
                     </div>
-                    <div class="ui-g-12">
+                    <div class="ui-g-12  form-group">
+                        <input type="password"  placeholder="Confirme sua senha" class="form-control"   name="confirmPassword" [ngModel]="user.confirmPassword" required validateEqual="password" reverse="false" #confirmPassword="ngModel" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                        <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
+                            Senha e confirmação de senha estão diferentes
+                        </small>
+                    </div>
+                    <div class="ui-g-12 form-group">
                         <button type="button" class="ui-button ui-widget ui-state-default green-button ui-corner-all ui-button-text-icon-left">
                             <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
                             <span class="ui-button-text ui-c">LIMPAR</span>
@@ -37,11 +44,17 @@
                             <span class="ui-button-text ui-c">CADASTRE-SE</span>
                         </button>
                     </div>
-                     <pre>{{value}}</pre>
                 </div>
             </form>
         </div>
-
         <div class="login-footer"></div>
     </div>
 </body>
+ <!--pattern="^[0-9]*$"
+ <div class="margin-20" *ngIf="f">
+                    <div>Form details:-</div>
+                    <pre>Is form valid?: <br>{{f.valid | json}}</pre>
+                    <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
+                    <pre>submitted value: <br>{{f.value | json}}</pre>
+                </div>
+                 -->

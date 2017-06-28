@@ -1,3 +1,4 @@
+import { EqualValidator } from './directives/equal-validator.directive';
 import { AuthGuard } from './guards/index';
 import {NgModule}      from '@angular/core';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
@@ -81,6 +82,7 @@ import { HomeComponent } from './views/home/home.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -159,7 +161,8 @@ import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.compo
         AppSubMenu,
         LoginComponent,
         HomeComponent,
-        NovoCadastroComponent
+        NovoCadastroComponent,
+        EqualValidator
     ],
     providers: [
         AuthGuard,
