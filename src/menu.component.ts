@@ -16,79 +16,13 @@ export class AppMenuComponent implements OnInit {
     
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'fa-home', routerLink: ['/']},
-            {
-                label: 'Components', icon: 'fa-home',
-                items: [
-                    {label: 'Sample Page', icon: 'fa-columns', routerLink: ['/sample']},
-                    {label: 'Forms', icon: 'fa-code', routerLink: ['/forms']},
-                    {label: 'Data', icon: 'fa-table', routerLink: ['/data']},
-                    {label: 'Panels', icon: 'fa-list-alt', routerLink: ['/panels']},
-                    {label: 'Overlays', icon: 'fa-square', routerLink: ['/overlays']},
-                    {label: 'Menus', icon: 'fa-minus-square-o', routerLink: ['/menus']},
-                    {label: 'Messages', icon: 'fa-circle-o-notch', routerLink: ['/messages']},
-                    {label: 'Charts', icon: 'fa-area-chart', routerLink: ['/charts']},
-                    {label: 'File', icon: 'fa-columns', routerLink: ['/file']},
-                    {label: 'Misc', icon: 'fa-arrow-circle-o-up', routerLink: ['/misc']}
-                ]
-            },
-            {label: 'Landing', icon: 'fa-certificate', url: 'assets/pages/landing.html', target: '_blank'},
-            {
-                label: 'Template Pages', icon: 'fa-life-saver',
-                items: [
-                    {label: 'Empty Page', icon: 'fa-square-o', routerLink: ['/empty']},
-                    {label: 'Login Page', icon: 'fa-sign-in', url: 'assets/pages/login.html', target: '_blank'},
-                    {label: 'Error Page', icon: 'fa-exclamation-circle', url: 'assets/pages/error.html', target: '_blank'},
-                    {label: '404 Page', icon: 'fa-times', url: 'assets/pages/404.html', target: '_blank'},
-                    {label: 'Access Denied Page', icon: 'fa-exclamation-triangle', url: 'assets/pages/access.html', target: '_blank'}
-                ]
-            },
-            {
-                label: 'Menu Hierarchy', icon: 'fa-gg',
-                items: [
-                    {
-                        label: 'Submenu 1', icon: 'fa-sign-in',
-                        items: [
-                            {
-                                label: 'Submenu 1.1', icon: 'fa-sign-in',
-                                items: [
-                                    {label: 'Submenu 1.1.1', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 1.1.2', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 1.1.3', icon: 'fa-sign-in'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 1.2', icon: 'fa-sign-in',
-                                items: [
-                                    {label: 'Submenu 1.2.1', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 1.2.2', icon: 'fa-sign-in'}
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2', icon: 'fa-sign-in',
-                        items: [
-                            {
-                                label: 'Submenu 2.1', icon: 'fa-sign-in',
-                                items: [
-                                    {label: 'Submenu 2.1.1', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 2.1.2', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 2.1.3', icon: 'fa-sign-in'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 2.2', icon: 'fa-sign-in',
-                                items: [
-                                    {label: 'Submenu 2.2.1', icon: 'fa-sign-in'},
-                                    {label: 'Submenu 2.2.2', icon: 'fa-sign-in'}
-                                ]
-                            },
-                        ]
-                    }
-                ]
-            },
-            {label: 'Documentation', icon: 'fa-book', routerLink: ['/documentation']}
+            {label: 'LOGIN', icon: 'fa-home', routerLink: ['/']},
+            {label: 'SOBRE VOCÊ', icon: 'fa-home', routerLink: ['/']},
+            {label: 'PROFISSIONAL', icon: 'fa-home', routerLink: ['/']},
+            {label: 'ENDEREÇO', icon: 'fa-home', routerLink: ['/']},
+            {label: 'FINANCEIRO', icon: 'fa-home', routerLink: ['/']},
+            {label: 'DOCUMENTOS E SEGURANÇA', icon: 'fa-home', routerLink: ['/']},
+            {label: 'CONCLUSÃO', icon: 'fa-home', routerLink: ['/']}
         ];
     }
 }

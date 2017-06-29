@@ -1,12 +1,20 @@
-import { EqualValidator } from './directives/equal-validator.directive';
-import { AuthGuard } from './guards/index';
+import { CadastroSobreVoceComponent } from './../views/cadastro-sobre-voce/cadastro-sobre-voce.component';
+import { AuthenticationService } from './../services/authentication.service';
+import { NovoCadastroComponent } from './../views/novo-cadastro/novo-cadastro.component';
+import { HomeComponent } from './../views/home/home.component';
+import { LoginComponent } from './../views/login/login.component';
+import { UserService } from './../services/user.service';
+import { AppSubMenu, AppMenuComponent } from './../menu.component';
+import { AppComponent } from './../app.component';
+import { AppRoutes } from './../app.routes';
+import { AuthGuard } from './../guards/auth.guard';
+import { EqualValidator } from './../directives/equal-validator.directive';
 import {NgModule}      from '@angular/core';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {HttpModule}    from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AppRoutes} from './app.routes';
 import 'rxjs/add/operator/toPromise';
 
 import {AccordionModule} from 'primeng/primeng';
@@ -72,15 +80,6 @@ import {ToolbarModule} from 'primeng/primeng';
 import {TooltipModule} from 'primeng/primeng';
 import {TreeModule} from 'primeng/primeng';
 import {TreeTableModule} from 'primeng/primeng';
-
-import {AppComponent}  from './app.component';
-import {AppMenuComponent,AppSubMenu} from './menu.component';
-
-import { AuthenticationService, UserService } from './services/index';
-import { LoginComponent } from './views/login/login.component';
-import { HomeComponent } from './views/home/home.component';
-import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
-
 
 
 @NgModule({
@@ -162,7 +161,8 @@ import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.compo
         LoginComponent,
         HomeComponent,
         NovoCadastroComponent,
-        EqualValidator
+        EqualValidator,
+        CadastroSobreVoceComponent
     ],
     providers: [
         AuthGuard,
