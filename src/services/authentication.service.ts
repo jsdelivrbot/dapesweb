@@ -16,7 +16,7 @@ export class AuthenticationService {
 
     login(username: string, password: string): Observable<boolean> {
         console.log(JSON.stringify({ username: username, password: password }));
-        let headers    = new Headers({ 'Content-Type': 'application/json' });
+        let headers    = new Headers({ 'Content-Type': 'application/json' , 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'});
         let options    = new RequestOptions({ headers: headers });
         return this.http.post(`${SERVER_URL}/api/userdata/authenticate`, JSON.stringify({ username: username, password: password }), options)
             .map((response: Response) => {
@@ -28,6 +28,30 @@ export class AuthenticationService {
 
                     // store username and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+
+                    // return true to indicate successful login
+                    return true;
+                } else {
+                    // return false to indicate failed login
+                    return false;
+                }
+            });
+    }
+
+    createUser(nome:string, email: string, password: string): Observable<boolean> {
+        console.log(JSON.stringify({ nome: nome, email: email, password: password }));
+        let headers    = new Headers({ 'Content-Type': 'application/json'  });
+        let options    = new RequestOptions({ headers: headers });
+        return this.http.post(`${SERVER_URL}/api/userdata/saveUser`, JSON.stringify({ nome: nome, email: email, senha: password }), options)
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let token = response.json() && response.json().token;
+                if (token) {
+                    // set token property
+                    this.token = token;
+
+                    // store username and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify({ username: email, token: token }));
 
                     // return true to indicate successful login
                     return true;
