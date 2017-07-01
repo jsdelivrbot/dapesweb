@@ -3,9 +3,46 @@
 </div>
 <body class="login-body">
     
-    <div id="login-wrapper" style="margin-top: 20px;">
+    <div id="login-wrapper">
         <div id="login-container">
-            <span class="title">Segurança e Facilidade</span>
+            <h1>Segurança e Facilidade</h1>
+            <br/>
+            <h2>Sem taxas e totalmente online</h2>
+            <br/>
+            <small>Cadastre-se usando as redes sociais</small>
+            <br>
+            <div class="ui-fluid">
+                <div class="ui-g-6">
+                    <a class="socialbox facebook" href="#">
+  <div class="social-icon">
+    <i class="fa fa-fw fa-facebook"></i>
+  </div>
+  <div class="description">
+    <span class="ng-binding-shares"></span>
+    <span class="ng-binding-likes"></span>
+    <span>Facebook</span>
+  </div>
+</a>
+                </div>
+                <div class="ui-g-6">
+                    <a class="socialbox linkedin" href="#">
+  <div class="social-icon">
+    <i class="fa fa-fw fa-linkedin"></i>
+  </div>
+  <div class="description">
+    <span class="ng-binding"></span>
+    <span>LinkedIn</span>
+  </div>
+</a>
+                </div>
+            </div>
+            
+                <div class="ui-g-5"><hr></div>
+                <div class="ui-g-2 text-center"><small>ou</small></div>
+                <div class="ui-g-5"><hr></div>
+            
+             <small>&nbsp;</small>
+             <small>Prencha os dados abaixo</small>
             <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
                 <div class="ui-g ui-fluid ">
                     <div class="ui-g-12 form-group">
@@ -20,28 +57,25 @@
                             E-mail inválido.
                         </small>
                     </div>
-                    <div class="ui-g-12 form-group">
+                    <div class="ui-g-6 form-group">
                         <input type="password" placeholder="Senha (6 números)" class="form-control" name="password"   [ngModel]="user.password" required validateEqual="confirmPassword" reverse="true" #password="ngModel" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
                         <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
                             Digite sua senha de 6 números.
                         </small>
                     </div>
-                    <div class="ui-g-12  form-group">
+                    <div class="ui-g-6 form-group">
                         <input type="password"  placeholder="Confirme sua senha" class="form-control"   name="confirmPassword" [ngModel]="user.confirmPassword" required validateEqual="password" reverse="false" #confirmPassword="ngModel" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
                         <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
                             Senha e confirmação de senha estão diferentes
                         </small>
                     </div>
-                    <div class="ui-g-12 form-group">
-                        <button type="button" class="ui-button ui-widget ui-state-default green-button ui-corner-all ui-button-text-icon-left">
-                            <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
-                            <span class="ui-button-text ui-c">LIMPAR</span>
+                    <div class="ui-g-6">
+                        <button pButton type="button" class="ui-button-secondary" label="LIMPAR">
                         </button>
+                        
                     </div>
-                    <div class="ui-g-12">
-                        <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" >
-                            <span class="ui-button-icon-left ui-c fa fa-fw ui-icon-person"></span>
-                            <span class="ui-button-text ui-c">CADASTRE-SE</span>
+                    <div class="ui-g-6">
+                        <button pButton type="button" class="ui-button-success" label="CADASTRE-SE">                
                         </button>
                     </div>
                 </div>

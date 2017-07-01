@@ -6,9 +6,9 @@ import {Routes,RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
+    {path: '', component: LoginComponent},
     {path: 'novo-cadastro', component: NovoCadastroComponent},
-    {path: '', component: CadastroSobreVoceComponent, canActivate: [AuthGuard]},
+    {path: 'cadastro', component: CadastroSobreVoceComponent, canActivate: [AuthGuard]},
 ];
 
 export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);

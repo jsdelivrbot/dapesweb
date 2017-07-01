@@ -31,8 +31,6 @@ export class AppComponent implements AfterViewInit,OnDestroy {
     
     public topMenuLeaving: boolean;
     
-    @ViewChild('scroller') public scrollerViewChild: ElementRef;
-    
     public scroller: HTMLDivElement;
     
     documentClickListener: Function;
@@ -44,8 +42,6 @@ export class AppComponent implements AfterViewInit,OnDestroy {
     constructor(public renderer: Renderer) {}
 
     ngAfterViewInit() {
-        this.scroller = <HTMLDivElement> this.scrollerViewChild.nativeElement;
-        
         //hides the overlay menu and top menu if outside is clicked
         this.documentClickListener = this.renderer.listenGlobal('body', 'click', (event) => {
             if(!this.isDesktop()) {

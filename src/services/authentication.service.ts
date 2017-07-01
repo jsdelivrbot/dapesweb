@@ -16,10 +16,11 @@ export class AuthenticationService {
 
     login(username: string, password: string): Observable<boolean> {
         console.log(JSON.stringify({ username: username, password: password }));
-        let headers    = new Headers({ 'Content-Type': 'application/json' , 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'});
+        let headers    = new Headers({ 'Content-Type': 'application/json'});
         let options    = new RequestOptions({ headers: headers });
         return this.http.post(`${SERVER_URL}/api/userdata/authenticate`, JSON.stringify({ username: username, password: password }), options)
             .map((response: Response) => {
+                console.log("chegou aqui");
                 // login successful if there's a jwt token in the response
                 let token = response.json() && response.json().token;
                 if (token) {

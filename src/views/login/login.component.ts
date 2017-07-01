@@ -3,6 +3,8 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   public user: UserLoginModel;
+
   loading = false;
   error = '';
   imageurl = 'https://s3-us-west-2.amazonaws.com/dapesweb/dapes_verde.jpg';
@@ -17,14 +20,16 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
         private authenticationService: AuthenticationService) { }
 
-  doLogin(user: UserLoginModel, isValid: boolean){
-    console.log("chegou");
+  doLogin(model: UserLoginModel, isValid: boolean){
     this.loading = true;
-        this.authenticationService.login(this.user.username, this.user.password)
+        this.authenticationService.login(model.username, model.password)
             .subscribe(result => {
+                console.log("result = "+ result);
                 if (result === true) {
-                    this.router.navigate(['/']);
+                    console.log("ttt");
+                    this.router.navigate(['/cadastro']);
                 } else {
+                    console.log("eee");
                     this.error = 'Username or password is incorrect';
                     this.loading = false;
                 }
