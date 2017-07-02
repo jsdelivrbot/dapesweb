@@ -16,13 +16,12 @@ export class AppMenuComponent implements OnInit {
     
     ngOnInit() {
         this.model = [
-            {label: 'LOGIN', icon: 'fa-home', routerLink: ['/']},
-            {label: 'SOBRE VOCÊ', icon: 'fa-home', routerLink: ['/']},
-            {label: 'PROFISSIONAL', icon: 'fa-home', routerLink: ['/']},
-            {label: 'ENDEREÇO', icon: 'fa-home', routerLink: ['/']},
-            {label: 'FINANCEIRO', icon: 'fa-home', routerLink: ['/']},
-            {label: 'DOCUMENTOS E SEGURANÇA', icon: 'fa-home', routerLink: ['/']},
-            {label: 'CONCLUSÃO', icon: 'fa-home', routerLink: ['/']}
+            {label: 'SOBRE VOCÊ', icon: 'fa-home', routerLink: ['/cadastroSobreVoce']},
+            {label: 'PROFISSIONAL', icon: 'fa-home', routerLink: ['/cadastroProfissional']},
+            {label: 'ENDEREÇO', icon: 'fa-home', routerLink: ['/cadastroEndereco']},
+            {label: 'FINANCEIRO', icon: 'fa-home', routerLink: ['/cadastroFinanceiro']},
+            {label: 'DOCUMENTOS E SEGURANÇA', icon: 'fa-home', routerLink: ['/cadastroDocumentos']},
+            {label: 'CONCLUSÃO', icon: 'fa-home', routerLink: ['/cadastroConclusao']}
         ];
     }
 }

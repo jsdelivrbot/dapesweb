@@ -26,10 +26,8 @@ export class NovoCadastroComponent implements OnInit {
         this.authenticationService.createUser(model.nome, model.email, model.password)
             .subscribe(result => {
                 if (result === true) {
-                  console.log("logou gente");
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/cadastroSobreVoce']);
                 } else {
-                  console.log("nao logou gente");
                     this.error = 'Username or password is incorrect';
                     this.loading = false;
                 }
