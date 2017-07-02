@@ -1,26 +1,114 @@
- <div class="ui-g ui-fluid">
-    <div class="card card-w-title ui-g-12">
-      <h1>Sobre você</h1>
-      <small>Para começar o seu cadastro, preencha os campos abaixo com os seus dados pessoais.</small>
-      <div style="clear:both"></div>
-      <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
-        <!--<div class="ui-g-8 form-group">
-          <input type="text" placeholder="Nome completo" [ngClass]="{'input-error': !nome.valid && !nome.pristine}" class="form-control ui-inputtext"
-            name="nome" [ngModel]="user.nome" required minlength="1" #nome="ngModel">
-          <small [hidden]="nome.valid || (nome.pristine && !f.submitted)" class="text-danger">Digite seu nome completo.</small>
-        </div>-->
-        <div class="ui-g-12 form-group">
-                        <input type="text" placeholder="Nome completo" [ngClass]="{'input-error': !nome.valid && !nome.pristine}" class="form-control ui-inputtext"
-                            name="nome" [ngModel]="user.nome" required minlength="1" #nome="ngModel">
-                        <small [hidden]="nome.valid || (nome.pristine && !f.submitted)" class="text-danger">
-                            Digite seu nome completo.
-                        </small>
+<body>
+    <div class="ui-g ui-fluid">
+        <div class="card card-w-title">
+            <h1>Sobre você</h1>
+            <small>Para começar o seu cadastro, preencha os campos abaixo com os seus dados pessoais.</small>
+            <div style="clear:both"></div>
+            <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+                <div class="ui-g-6 ui-m-6 ui-s-12 form-group">
+                    <label>Nome completo</label>
+                    <input type="text" placeholder="Digite seu nome completo" [ngClass]="{'input-error': !nome.valid && !nome.pristine}" class="form-control ui-inputtext"
+                        name="nome" [ngModel]="user.nome" required minlength="1" #nome="ngModel">
+                    <small [hidden]="nome.valid || (nome.pristine && !f.submitted)" class="text-danger">Digite seu nome completo.</small>
+                </div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>CPF</label>
+                    <input type="text" placeholder="Informe o número de CPF" [ngClass]="{'input-error': !cpf.valid && !cpf.pristine}" class="form-control ui-inputtext"
+                        name="cpf" [ngModel]="user.cpf" required minlength="11" #cpf="ngModel">
+                    <small [hidden]="cpf.valid || (cpf.pristine && !f.submitted)" class="text-danger">CPF inválido.</small>
+                </div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>Nacionalidade</label>
+                    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
+                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+                    </select>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>Naturalidade</label>
+                    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel4">
+                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+                    </select>
+                </div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>Sexo</label>
+                    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel5">
+                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+                    </select>
+                </div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>Estado Civil</label>
+                    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel5">
+                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+                    </select>
+                </div>
+                <div class="ui-g-3 ui-m-6 ui-s-12 form-group">
+                    <label>Data de Nascimento</label>
+                    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel5">
+                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+                    </select>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ui-g-12 form-group">
+                    <label>Nome da Cônjuge ou Companheiro</label>
+                    <input type="text" placeholder="Digite o Nome da Cônjuge ou Companheiro" [ngClass]="{'input-error': !conjuge.valid && !conjuge.pristine}"
+                        class="form-control ui-inputtext" name="conjuge" [ngModel]="user.conjuge" required minlength="1" #conjuge="ngModel">
+                    <small [hidden]="conjuge.valid || (conjuge.pristine && !f.submitted)" class="text-danger">Digite o Nome da Cônjuge ou Companheiro.</small>
+                </div>
+                <div class="ui-g-4 form-group">
+                    <label>Telefone residencial</label>
+                    <input type="text" placeholder="Infome seu telefone residencial" [ngClass]="{'input-error': !telefonResidencial.valid && !telefonResidencial.pristine}"
+                        class="form-control ui-inputtext" name="telefonResidencial" [ngModel]="user.telefonResidencial" required
+                        minlength="1" #telefonResidencial="ngModel">
+                    <small [hidden]="telefonResidencial.valid || (telefonResidencial.pristine && !f.submitted)" class="text-danger">Infome seu telefone residencial.</small>
+                </div>
+                <div class="ui-g-4 form-group">
+                    <div class="checkboxFive">
+                        <input type="checkbox" [checked]="user.snPossuiTelefoneResidencial" name="snPossuiTelefoneResidencial" [ngModel]="user.snPossuiTelefoneResidencial"
+                            #snPossuiTelefoneResidencial="ngModel" />
+                        <label for="snPossuiTelefoneResidencial"></label>
+                        <span for="snPossuiTelefoneResidencial" style="margin-left: 15px">Não possuo telefone residencial</span>
                     </div>
-        <div class="ui-g-4 form-group">
-          <input type="text" placeholder="CPF" [ngClass]="{'input-error': !cpf.valid && !cpf.pristine}" class="form-control ui-inputtext"
-            name="cpf" [ngModel]="user.cpf" required minlength="11" #nome="ngModel">
-          <small [hidden]="cpf.valid || (cpf.pristine && !f.submitted)" class="text-danger">CPF inválido.</small>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ui-g-4 form-group">
+                    <label>Telefone celular</label>
+                    <input type="text" placeholder="Infome seu telefone celular" [ngClass]="{'input-error': !telefoneCelular.valid && !telefoneCelular.pristine}"
+                        class="form-control ui-inputtext" name="telefoneCelular" [ngModel]="user.telefoneCelular" required minlength="1"
+                        #telefoneCelular="ngModel">
+                    <small [hidden]="telefoneCelular.valid || (telefoneCelular.pristine && !f.submitted)" class="text-danger">Infome seu telefone celular.</small>
+                </div>
+                <div class="ui-g-4 form-group">
+                    <div class="checkboxFive">
+                        <input type="checkbox" [checked]="user.snCelularValidado" name="snCelularValidado" [ngModel]="user.snCelularValidado"
+                            #snCelularValidado="ngModel" />
+                        <label for="snCelularValidado"></label>
+                        <span for="snCelularValidado" style="margin-left: 15px">Telefone celular confirmado</span>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ui-g-12 form-group">
+                    <label>Nome da Mãe</label>
+                    <input type="text" placeholder="Digite o nome da mãe" [ngClass]="{'input-error': !mae.valid && !mae.pristine}"
+                        class="form-control ui-inputtext" name="mae" [ngModel]="user.mae" required minlength="1" #mae="ngModel">
+                    <small [hidden]="mae.valid || (mae.pristine && !f.submitted)" class="text-danger">Digite o nome de sua mãe.</small>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ui-g-12 form-group">
+                    <label>Nome do Pai</label>
+                    <input type="text" placeholder="Digite o nome de seu pai" [ngClass]="{'input-error': !pai.valid && !pai.pristine}"
+                        class="form-control ui-inputtext" name="pai" [ngModel]="user.pai" required minlength="1" #pai="ngModel">
+                    <small [hidden]="pai.valid || (pai.pristine && !f.submitted)" class="text-danger">Digite o nome de seu pai.</small>
+                </div>
+                <div class="ui-g-4 form-group">
+                    <div class="checkboxFive">
+                        <input type="checkbox" [checked]="user.snPaiDesconhecido" name="snPaiDesconhecido" [ngModel]="user.snPaiDesconhecido"
+                            #snPaiDesconhecido="ngModel" />
+                        <label for="checkboxFiveInput"></label>
+                        <span for="checkboxFiveInput" style="margin-left: 15px">Pai desconhecido</span>
+                    </div>
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
+</body>

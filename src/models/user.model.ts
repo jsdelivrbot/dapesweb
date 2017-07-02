@@ -11,6 +11,7 @@ export class UserModel{
     telefoneResidencial:string;
     snPossuiTelefoneResidencial:boolean;
     telefoneCelular:string;
+    snCelularValidado:boolean;
     mae:string;
     pai:string;
     snPaiDesconhecido:boolean;

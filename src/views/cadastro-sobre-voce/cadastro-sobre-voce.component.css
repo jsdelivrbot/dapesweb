@@ -7,7 +7,19 @@ hr {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
+select{
+    font-size: 1em;
+    color: #4f575b;
+    margin: 0;
+    outline: medium none;
+    padding: 9px .25em;
+    background: #ffffff;
+    font-weight: normal;
+    border: 0 none;
+    border-bottom: 2px solid #DDD;
+    border-radius: 0;
+    width: 100%;
+}
 input.ui-inputtext {
     font-size: 1em;
     color: #4f575b;
@@ -17,7 +29,7 @@ input.ui-inputtext {
     background: #ffffff;
     font-weight: normal;
     border: 0 none;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 2px solid #DDD;
     border-radius: 0;
 }
 
@@ -37,3 +49,48 @@ input.ui-inputtext:focus {
 }
 
 .text-center{text-align: center}
+
+.checkboxFive {
+	width: 100%;
+	margin: 20px;
+	position: relative;
+}
+
+.checkboxFive label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	border:1px solid #ddd;
+}
+.checkboxFive label:after {
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+/**
+ * Create the hover event of the tick
+ */
+.checkboxFive label:hover::after {
+	opacity: 0.5;
+}
+
+/**
+ * Create the checkbox state for the tick
+ */
+.checkboxFive input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}

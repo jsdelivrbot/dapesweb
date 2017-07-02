@@ -25,6 +25,16 @@ export class CadastroSobreVoceComponent implements OnInit {
     console.log(model, isValid);
   }
 
+  deviceObjects = [{name: 'Brasileiro Nato'}, {name: 'Brasileiro Naturalizado'}, {name: 'Estrangeiro'}];
+  selectedDeviceObj = this.deviceObjects[1];
+  onChangeObj(newObj) {
+    this.selectedDeviceObj = newObj;
+  }
+
+  onCheckSnTelefonResidencial(status){
+    this.user.snPossuiTelefoneResidencial = !status;
+  }
+
 
   ngOnInit() {
     this.user = {
@@ -38,8 +48,9 @@ export class CadastroSobreVoceComponent implements OnInit {
       estadoCivil: '',
       conjuge: '',
       telefoneResidencial: '',
-      snPossuiTelefoneResidencial: false,
+      snPossuiTelefoneResidencial: true,
       telefoneCelular: '',
+      snCelularValidado: false,
       mae: '',
       pai: '',
       snPaiDesconhecido: false,
