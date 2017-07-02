@@ -4,14 +4,14 @@ import { CadastroFinanceiroComponent } from './../views/cadastro-financeiro/cada
 import { CadastroEnderecoComponent } from './../views/cadastro-endereco/cadastro-endereco.component';
 import { CadastroProfissionalComponent } from './../views/cadastro-profissional/cadastro-profissional.component';
 import { CadastroSobreVoceComponent } from './../views/cadastro-sobre-voce/cadastro-sobre-voce.component';
-import { AuthenticationService } from './../services/authentication.service';
+import { MainComponent } from './../views/main/main.component';
 import { NovoCadastroComponent } from './../views/novo-cadastro/novo-cadastro.component';
-import { HomeComponent } from './../views/home/home.component';
 import { LoginComponent } from './../views/login/login.component';
-import { UserService } from './../services/user.service';
-import { AppSubMenu, AppMenuComponent } from './../menu.component';
 import { AppComponent } from './../app.component';
 import { AppRoutes } from './../app.routes';
+import { AuthenticationService } from './../services/authentication.service';
+import { UserService } from './../services/user.service';
+import { AppSubMenu, AppMenuComponent } from './../menu.component';
 import { AuthGuard } from './../guards/auth.guard';
 import { EqualValidator } from './../directives/equal-validator.directive';
 import {NgModule}      from '@angular/core';
@@ -163,7 +163,6 @@ import {TreeTableModule} from 'primeng/primeng';
         AppMenuComponent,
         AppSubMenu,
         LoginComponent,
-        HomeComponent,
         NovoCadastroComponent,
         EqualValidator,
         CadastroSobreVoceComponent,
@@ -171,7 +170,8 @@ import {TreeTableModule} from 'primeng/primeng';
         CadastroEnderecoComponent,
         CadastroFinanceiroComponent,
         CadastroDocumentosComponent,
-        CadastroConclusaoComponent
+        CadastroConclusaoComponent,
+        MainComponent
     ],
     providers: [
         AuthGuard,

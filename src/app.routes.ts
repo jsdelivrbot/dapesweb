@@ -4,21 +4,29 @@ import { CadastroFinanceiroComponent } from './views/cadastro-financeiro/cadastr
 import { CadastroEnderecoComponent } from './views/cadastro-endereco/cadastro-endereco.component';
 import { CadastroProfissionalComponent } from './views/cadastro-profissional/cadastro-profissional.component';
 import { CadastroSobreVoceComponent } from './views/cadastro-sobre-voce/cadastro-sobre-voce.component';
+import { MainComponent } from './views/main/main.component';
 import { LoginComponent } from './views/login/login.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
-import { AuthGuard } from './guards/index';
+import { AuthGuard } from './guards/auth.guard';
 import {Routes,RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 
 export const routes: Routes = [
+    {path: 'login', component: LoginComponent},
     {path: 'novo-cadastro', component: NovoCadastroComponent},
-    {path: 'cadastroSobreVoce', component: CadastroSobreVoceComponent, canActivate: [AuthGuard]},
-    {path: 'cadastroProfissional', component: CadastroProfissionalComponent, canActivate: [AuthGuard]},
-    {path: 'cadastroEndereco', component: CadastroEnderecoComponent, canActivate: [AuthGuard]},
-    {path: 'cadastroFinanceiro', component: CadastroFinanceiroComponent, canActivate: [AuthGuard]},
-    {path: 'cadastroDocumentos', component: CadastroDocumentosComponent, canActivate: [AuthGuard]},
-    {path: 'cadastroConclusao', component: CadastroConclusaoComponent, canActivate: [AuthGuard]},
-    {path: 'login', component: LoginComponent, outlet: 'login', pathMatch: 'full'}
+    {
+        path: '',
+        component: MainComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {path: 'cadastroSobreVoce', component: CadastroSobreVoceComponent},
+            {path: 'cadastroProfissional', component: CadastroProfissionalComponent},
+            {path: 'cadastroEndereco', component: CadastroEnderecoComponent},
+            {path: 'cadastroFinanceiro', component: CadastroFinanceiroComponent},
+            {path: 'cadastroDocumentos', component: CadastroDocumentosComponent},
+            {path: 'cadastroConclusao', component: CadastroConclusaoComponent}
+        ]
+    }
 ];
 
 export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);
