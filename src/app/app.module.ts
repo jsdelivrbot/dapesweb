@@ -1,3 +1,8 @@
+import { CadastroConclusaoComponent } from './../views/cadastro-conclusao/cadastro-conclusao.component';
+import { CadastroDocumentosComponent } from './../views/cadastro-documentos/cadastro-documentos.component';
+import { CadastroFinanceiroComponent } from './../views/cadastro-financeiro/cadastro-financeiro.component';
+import { CadastroEnderecoComponent } from './../views/cadastro-endereco/cadastro-endereco.component';
+import { CadastroProfissionalComponent } from './../views/cadastro-profissional/cadastro-profissional.component';
 import { CadastroSobreVoceComponent } from './../views/cadastro-sobre-voce/cadastro-sobre-voce.component';
 import { AuthenticationService } from './../services/authentication.service';
 import { NovoCadastroComponent } from './../views/novo-cadastro/novo-cadastro.component';
@@ -81,7 +86,6 @@ import {TooltipModule} from 'primeng/primeng';
 import {TreeModule} from 'primeng/primeng';
 import {TreeTableModule} from 'primeng/primeng';
 
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -162,7 +166,12 @@ import {TreeTableModule} from 'primeng/primeng';
         HomeComponent,
         NovoCadastroComponent,
         EqualValidator,
-        CadastroSobreVoceComponent
+        CadastroSobreVoceComponent,
+        CadastroProfissionalComponent,
+        CadastroEnderecoComponent,
+        CadastroFinanceiroComponent,
+        CadastroDocumentosComponent,
+        CadastroConclusaoComponent
     ],
     providers: [
         AuthGuard,

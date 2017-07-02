@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(model.username, model.password)
             .subscribe(result => {
                 if (result === true) {
-                    this.router.navigate(['/cadastro']);
+                    this.router.navigate(['/cadastroSobreVoce']);
                 } else {
                     console.log("error" + this.error);
                     this.loading = false;
